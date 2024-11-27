@@ -7,4 +7,5 @@
 }
 body {
   @apply bg-mainBackground text-fontColor;
+  /* background-color: #1c1c1f; */
 }
