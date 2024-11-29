@@ -7,4 +7,12 @@ weatherMap.set("lightning", "WiNightLightning")
 weatherMap.set("tornado", "WiTornado")
 weatherMap.set("sunny", "WiDaySunny")
 
-export { weatherMap }
+function convertToFlag(countryCode) {
+  const codePoints = countryCode
+    .toUpperCase()
+    .split("")
+    .map((char) => 127397 + char.charCodeAt())
+  return String.fromCodePoint(...codePoints)
+}
+
+export { weatherMap, convertToFlag }
