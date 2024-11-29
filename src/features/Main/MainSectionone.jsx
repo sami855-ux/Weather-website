@@ -1,8 +1,9 @@
 import { HiOutlineCalendar, HiOutlineMap } from "react-icons/hi"
+import { useSelector } from "react-redux"
 
 const MainSectionone = () => {
   return (
-    <div className="w-[400px] h-[83vh] ">
+    <div className="w-full lg:w-[450px] h-[83vh] flex flex-col justify-center items-center lg:block">
       <Now />
       <FiveDayForcast />
     </div>
@@ -10,8 +11,9 @@ const MainSectionone = () => {
 }
 
 const Now = () => {
+  const { query } = useSelector((store) => store.weather)
   return (
-    <div className="w-full h-56  rounded-xl bg-[#2d2d32] py-3 px-8">
+    <div className="w-[80%] lg:w-full h-56  rounded-xl bg-[#2d2d32] py-3 px-8">
       <span className="text-sm ">Now</span>
       <div className="flex justify-between w-full h-20 gap-4 my-3">
         <section className="flex flex-col h-full">
@@ -28,7 +30,7 @@ const Now = () => {
       </p>
       <p className="flex items-center gap-2 pt-1 text-sm font-thin text-gray-400">
         <HiOutlineMap size={17} />
-        Debre Brihan. Ethiopia
+        {query}. Ethiopia
       </p>
     </div>
   )
@@ -36,7 +38,7 @@ const Now = () => {
 
 const FiveDayForcast = () => {
   return (
-    <div className="w-full h-[370px]  rounded-xl bg-[#2d2d32] py-3 px-5 mt-4">
+    <div className="w-[80%] lg:w-full min-h-[370px]  rounded-xl bg-[#2d2d32] py-3 px-5 mt-4">
       <h2 className="py-2 text-3xl text-bold">5 Days forecast</h2>
       <DayForecast />
       <DayForecast />
