@@ -30,13 +30,14 @@ const weatherReducer = createSlice({
           humidity: action.payload.list[0].main.humidity,
           wind: action.payload.list[0].wind.speed,
           temp: action.payload.list[0].main.temp,
+          weather: action.payload.list[0].weather.description,
+          day: action.payload.list[0].dt_txt,
           fiveDay: [
             action.payload.list[1],
             action.payload.list[2],
             action.payload.list[3],
             action.payload.list[4],
             action.payload.list[5],
-            action.payload.list[6],
           ],
         }
         state.isLoading = false

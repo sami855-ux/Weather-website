@@ -1,9 +1,9 @@
 const GEO_URL = `http://api.openweathermap.org/geo/1.0/direct?limit=5&appid=${
   import.meta.env.VITE_API_KEY
 }`
-const WEATHER_URL = `https://api.openweathermap.org/data/2.5/forecast?&appid=${
+const WEATHER_URL = `https://pro.openweathermap.org/data/2.5/forecast/climate?appid=${
   import.meta.env.VITE_API_KEY
-}`
+}&units=metric`
 
 const fetchLocationData = async (cityName) => {
   const geoUrl = `${GEO_URL}&q=${cityName}`
