@@ -59,6 +59,12 @@ const FiveDayForcast = () => {
 }
 
 const DayForecast = ({ day }) => {
+  const {
+    dt_txt: currentDay,
+    main: { temp },
+  } = day
+
+  const icon = day.weather[0].icon
   const daysOfWeek = [
     "Monday",
     "Tuesday",
@@ -68,15 +74,20 @@ const DayForecast = ({ day }) => {
     "Saturday",
     "Sunday",
   ]
-  const date = new Date(day.dt_txt)
+
+  const date = new Date(currentDay)
   const dayNum = date.getDate()
   const dayName = daysOfWeek[date.getDay()]
   const month = date.toDateString().split(" ")[1]
+
   return (
     <section className="flex items-center justify-between w-full my-1 h-14">
       <div className="flex items-center">
         <img src="" alt="" className="mx-1 rounded-full w-7 h-7" />
-        <p className="text-lg">28.0&deg;</p>
+        <p className="text-lg">
+          {temp}
+          {icon}&deg;
+        </p>
       </div>
 
       <span className="text-sm text-gray-400">{`${dayNum} ${month}`} </span>
